@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}base{% endblock  %}</title>
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-white   font-serif leading-normal tracking-normal">
+		<div class="container mx-auto" style="font-family:'system-ui';">
+	{% block content %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="text-center py-10" >
+    <h1 class="text-4xl font-bold text-indigo-700" >Welcome to Quiz & Events App</h1>
+    <p class="text-gray-600 mt-4">Attempt quizzes and explore upcoming events</p>
+    <div class="mt-8 space-x-4">
+        <a href="{% url 'quize_list' %}" class="bg-red-600 text-white px-5 py-2 rounded">
+            View Quizzes
+        </a>
+        <a href="{% url 'event_list' %}" class="bg-green-600 text-white px-5 py-2 rounded">
+            View Events
+        </a>
+    </div>
+</div>
+{% endblock  %}
+		</div>
+	</body>
+</html>

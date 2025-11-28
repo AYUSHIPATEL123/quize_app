@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Quiz Result{% endblock  %}
+
+{% block content %}
+<div class="ise isg isp align-middle text-center m-16">
+  <div class="block p-6 bg-white border border-gray-200 rounded-lg shadow-md w-1/2 ml-auto mr-auto mt-10">
+        <br>
+        <p class="font-bold text-3xl text-green-600">Congratulations! You have completed the quiz.</p>
+        <br>
+        <p class="font-bold text-2xl"> Your Score:</p>
+        <br>
+
+        <h4 class="iru isk bg-blue-500  font-bold p-3">{{ submission.score }} / {{ submission.quize.question_set.count }}</h4>
+      
+  </div>
+</div>
+{% endblock %}
