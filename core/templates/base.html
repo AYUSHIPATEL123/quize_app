@@ -1,16 +1,36 @@
+
 {% load static tailwind_tags %}
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>{% block title %}base{% endblock  %}</title>
+        <title>{% block title %}Home{% endblock  %}</title>
 		{% tailwind_css %}
 	</head>
-
-	<body class="bg-white   font-serif leading-normal tracking-normal">
-		<div class="container mx-auto" style="font-family:'system-ui';">
+	<body class="bg-sky-50 font-serif leading-normal tracking-normal">
+	<div class="container mx-auto" style="font-family:'system-ui';">
+     {% if messages %}
+<div id="message-container" class="fixed top-4 left-1/2 transform -translate-x-1/2 space-y-2 z-50">
+    {% for message in messages %}
+        <div class="text-center px-4 py-2 
+            rounded shadow 
+            text-white font-medium
+            transition-all duration-500
+            {% if 'success' in message.tags %} bg-green-500
+            {% elif 'error' in message.tags %} bg-red-500
+            {% elif 'warning' in message.tags %} bg-yellow-500
+            {% elif 'info' in message.tags %} bg-blue-500
+            {% else %} bg-gray-500
+            {% endif %}
+            ">
+            {{ message }}
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 	{% block content %}
     <br>
     <br>
@@ -27,9 +47,34 @@
         <a href="{% url 'event_list' %}" class="bg-green-600 text-white px-5 py-2 rounded">
             View Events
         </a>
+        <br>
+        <br>
+        <br>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="bg-red-600 text-white px-5 py-2 rounded">
+            Logout
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="bg-blue-600 text-white px-5 py-2 rounded">
+            Login
+        </a>
+        <a href="{% url 'register' %}" class="bg-green-600 text-white px-5 py-2 rounded">
+            Register
+        </a>
+        {% endif %}
     </div>
 </div>
 {% endblock  %}
 		</div>
+    <script>
+    setTimeout(function() {
+        const msgBox = document.getElementById("message-container");
+        if (msgBox) {
+            msgBox.style.transition = "0.5s";
+            msgBox.style.opacity = "0";
+            setTimeout(() => msgBox.remove(), 500);
+        }
+    }, 3000);
+</script>  
 	</body>
 </html>

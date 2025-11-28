@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     "django_browser_reload",
+    'widget_tweaks',
+
 ]
 
 TAILWIND_APP_NAME = 'theme'
@@ -74,6 +76,15 @@ TEMPLATES = [
         },
     },
 ]
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.DEBUG: 'secondary',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
