@@ -120,7 +120,7 @@ python manage.py runserver
 Now visit:
 👉 http://127.0.0.1:8000/
 
-## 🎨 Tailwind Configuration Notes
+# 🎨 Tailwind Configuration Notes
 
 Update tailwind.config.js:
 
@@ -172,7 +172,7 @@ Feel free to open issues or submit PRs to improve features, UI, or performance.
 
 
 
-## Install django-tailwind with reload support
+# Install django-tailwind with reload support
 ```bash
 pip install "django-tailwind[reload]"
 ```
@@ -223,6 +223,6 @@ urlpatterns = [
 python manage.py tailwind start
 
 
-## 📄 License
+# 📄 License
 
 This project is licensed under the MIT License.
