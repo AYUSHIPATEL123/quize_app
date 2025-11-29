@@ -79,9 +79,9 @@ INSTALLED_APPS = [
     "widget_tweaks",                     
 ]
 
-TAILWIND_APP_NAME = 'theme'
-NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd' (windows) (put you path) [in cmd type  
-INTERNAL_IPS = ['127.0.0.1',]
+TAILWIND_APP_NAME = 'theme'                                        
+NPM_BIN_PATH = r'C:\Program Files\nodejs\npm.cmd'       (windows) (put your path) to get path : [in cmd type : where npm"]                     
+INTERNAL_IPS = ['127.0.0.1',]               
 
 MIDDLEWARE = [
     ...
