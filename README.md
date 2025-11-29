@@ -213,7 +213,7 @@ MIDDLEWARE = [
 
 
 URLs:
-
+root urls.py
 urlpatterns = [
     ...                                 
     path("__reload__/", include("django_browser_reload.urls")),             
