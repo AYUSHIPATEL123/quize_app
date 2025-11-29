@@ -5,13 +5,15 @@
     <h1 class="text-3xl font-bold mb-6 text-center text-indigo-700">Let's Take a Quiz!</h1>
     <form action="{% url 'quize_detail' quize.id %}" method="POST" class="space-y-6">
     {% csrf_token %}
-    {% for question in questions %} 
+    
+    {% for question in questions %}  {% comment %}# to iterate through all questions in the quiz {% endcomment %}
     <div class="pmo pms pmy pnb pnc pnk">
   <fieldset class="p-4 m-3 border-2 border-gray-300 rounded-lg bg-gray-100">
-    {{ forloop.counter }} . <span class="pmk pnd png">{{ question.text }}</span>
-    {% for ans in answers %}
-    {% if ans.question == question %}
+    {{ forloop.counter }} . <span class="pmk pnd png">{{ question.text }}</span>  {% comment %}# Display question  {% endcomment %}
+    {% for ans in answers %}  {% comment %}# to iterate through all answers related to the question {% endcomment %}
+    {% if ans.question == question %} {% comment %}# Check if the answer belongs to the current question {% endcomment %}
     <div class="pmo pmr">
+      {% comment %}# Display answer option {% endcomment %}
         <input id="answer_{{ans.id}}" required="true" type="radio" name="question_{{question.id}}" value="{{ ans.id }}" class="pmj pmp pmq pmu pmv pmx pna pnl pnm pnn pno pnp pnq pns pnu pnv pnw pnz pob pod poq por bg-white border-gray-300 text-blue-600 focus:ring-blue-900">
         <label for="answer_{{ans.id}}" class="pmm pmn pnd pne pnj">{{ ans.text }}</label>
     </div>

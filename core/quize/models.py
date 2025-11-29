@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 
-class Quize(models.Model):
+class Quize(models.Model): # Model to represent a quiz
     title = models.CharField(max_length=200)
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -11,11 +11,11 @@ class Quize(models.Model):
     def __str__(self):
         return self.title
 
-class Question(models.Model):
+class Question(models.Model):  # Model to represent a question in a quiz
     CHOICES = (
         ('mcq', 'Multiple Choice Question'),
         ('T/F', 'True/False'),
-    )    
+    )     # Define question types
     quize = models.ForeignKey(Quize,on_delete=models.CASCADE)
     text = models.TextField()
     question_type = models.CharField(max_length=3, choices=CHOICES, default='mcq')
@@ -24,14 +24,14 @@ class Question(models.Model):
     def __str__(self):
         return self.text
 
-class Answer(models.Model):
+class Answer(models.Model):  # Model to represent an answer to a question
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
     is_correct = models.BooleanField(default=False)
     def __str__(self):
         return self.text    
 
-class UserSubmission(models.Model):
+class UserSubmission(models.Model):  # Model to represent a user's submission for a quiz
     quize = models.ForeignKey(Quize,on_delete=models.CASCADE)
     user_name = models.CharField(max_length=100)
     score = models.IntegerField(default=0)
@@ -39,7 +39,7 @@ class UserSubmission(models.Model):
     def __str__(self):
         return f"{self.user_name} - {self.quize.title} - {self.score}"
 
-class UserAnswer(models.Model):
+class UserAnswer(models.Model):  # Model to represent an answer given by a user in a submission
     submission = models.ForeignKey(UserSubmission,on_delete=models.CASCADE)
     question = models.ForeignKey(Question,on_delete=models.CASCADE)
     answer = models.ForeignKey(Answer,on_delete=models.CASCADE)

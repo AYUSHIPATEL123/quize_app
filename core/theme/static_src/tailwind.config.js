@@ -44,12 +44,27 @@ module.exports = {
         "./**/templates/**/*.{html,js}",
     ],
     safelist: [
-    "bg-green-500",
-    "bg-red-500",
-    "bg-yellow-500",
-    "bg-blue-500",
-    "bg-gray-500",
-    "text-white",
+    // "bg-green-500",
+    // "bg-red-500",
+    // "bg-yellow-500",
+    // "bg-blue-500",
+    // "bg-gray-500",
+    // "text-white",
+    "bg-green-500", "text-green-700", "border-green-400",
+
+  // Red error
+  "bg-red-500", "bg-red-100", "bg-red-200",
+  "text-red-700", "border-red-400",
+
+  // Yellow warning
+  "bg-yellow-500",
+
+  // Blue info
+  "bg-blue-500",
+
+  // Default fallback
+  "bg-gray-500",
+  "text-white",
   ],
     theme: {
         extend: {},

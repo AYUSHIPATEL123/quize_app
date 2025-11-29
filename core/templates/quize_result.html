@@ -9,6 +9,7 @@
         <br>
         <p class="font-bold text-2xl"> Your Score:</p>
         <br>
+        {% comment %}# Displaying the user's score out of total questions in the quiz {% endcomment %}
         <h4 class="iru isk bg-blue-500  font-bold p-3">{{ submission.score }} / {{ submission.quize.question_set.count }}</h4>
   </div>
 </div>
